@@ -38,7 +38,7 @@ public class TestSetup {
 
     @AfterClass
     public void quit(){
-        //driver.quit();
+        driver.quit();
     }
 
 }

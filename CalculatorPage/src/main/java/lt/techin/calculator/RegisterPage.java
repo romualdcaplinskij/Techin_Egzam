@@ -23,11 +23,11 @@ public class RegisterPage extends BasePage{
     @FindBy (xpath = "//form[@id='userForm']/button[@type='submit']")
     private WebElement createUserButton;
 
-    @FindBy (xpath = "/html//span[@id='username.errors']")
+    @FindBy (xpath = "//form[@id='userForm']/div[@class='form-group has-error']")
     private WebElement userNameErrorMessage;
 
-    private String getUserNameFieldErrorMessage(){
-        return userNameField.getText();
+    public String getUserNameFieldErrorMessage(){
+        return userNameErrorMessage.getText();
     }
 
     public void enterUserName(String username){

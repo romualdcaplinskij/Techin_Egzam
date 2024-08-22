@@ -21,6 +21,13 @@ public class LoginPage extends BasePage{
     @FindBy (xpath = "/html//div[@class='container']/form[@action='/prisijungti']//a[@href='/registruoti']")
     private WebElement createAccountButton;
 
+    @FindBy (xpath = "/html//form[@action='/prisijungti']/div/span[2]")
+    private WebElement errorMessage;
+
+    public String getErrorMessage(){
+        return errorMessage.getText();
+    }
+
     public void clickCreateAccount(){
         createAccountButton.click();
     }
