@@ -1,5 +1,6 @@
 package lt.techin.calculator;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,20 +17,23 @@ public class TestSetup {
 
     LoginPage loginPage;
     RegisterPage registerPage;
-    LoggedUserPage loggedUserPage;
+    CalculatorMainPage calculatorMainPage;
+    GenerateUserData generateUserData;
 
     @BeforeClass
     public void setDriver() {
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(ofMillis(2000));
-        wait = new WebDriverWait(driver, ofMillis(2000));
+        driver.manage().timeouts().implicitlyWait(ofMillis(5000));
+        wait = new WebDriverWait(driver, ofMillis(5000));
         driver.manage().window().maximize();
         driver.get("http://localhost:8080");
         softAssert = new SoftAssert();
 
+
         loginPage = new LoginPage(driver);
         registerPage = new RegisterPage(driver);
-        loggedUserPage = new LoggedUserPage(driver);
+        calculatorMainPage = new CalculatorMainPage(driver);
+        generateUserData = new GenerateUserData();
     }
 
     @AfterClass

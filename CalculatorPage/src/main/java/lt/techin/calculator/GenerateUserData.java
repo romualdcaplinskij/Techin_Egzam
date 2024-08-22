@@ -30,6 +30,10 @@ public class GenerateUserData {
         return userData;
     }
 
+    public String getRandomDigit(){
+        return faker.number().digit();
+    }
+
     public void saveUserDataToCSV(Map<String, String> userData, String filePath) throws IOException {
         boolean fileExists = new java.io.File(filePath).exists();
         //append: true allows to add new lines to the file

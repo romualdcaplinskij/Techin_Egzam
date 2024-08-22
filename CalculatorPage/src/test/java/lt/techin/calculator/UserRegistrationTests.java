@@ -26,9 +26,10 @@ public class UserRegistrationTests extends TestSetup{
         System.out.println("Firstname: " + userData.get("username"));
         System.out.println("Lastname: " + userData.get("password"));
         registerPage.clickCreateUserButton();
-        String displayedUserName = loggedUserPage.getDisplayedUserName();
+        String displayedUserName = calculatorMainPage.getDisplayedUserName();
         //If registration is successful username should be displayed.
-        Assert.assertEquals(displayedUserName, userData.get("username"));
-        loggedUserPage.clickLogout();
+        Assert.assertEquals(displayedUserName, userData.get("username"),
+                "Registration was unsuccessful or username is not displayed");
+        calculatorMainPage.clickLogout();
     }
 }

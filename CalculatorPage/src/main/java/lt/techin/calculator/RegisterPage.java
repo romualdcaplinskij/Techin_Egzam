@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.logging.XMLFormatter;
+
 public class RegisterPage extends BasePage{
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -20,6 +22,13 @@ public class RegisterPage extends BasePage{
 
     @FindBy (xpath = "//form[@id='userForm']/button[@type='submit']")
     private WebElement createUserButton;
+
+    @FindBy (xpath = "/html//span[@id='username.errors']")
+    private WebElement userNameErrorMessage;
+
+    private String getUserNameFieldErrorMessage(){
+        return userNameField.getText();
+    }
 
     public void enterUserName(String username){
         userNameField.sendKeys(username);
