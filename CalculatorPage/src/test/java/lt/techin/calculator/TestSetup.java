@@ -15,6 +15,8 @@ public class TestSetup {
     SoftAssert softAssert;
 
     LoginPage loginPage;
+    RegisterPage registerPage;
+    LoggedUserPage loggedUserPage;
 
     @BeforeClass
     public void setDriver() {
@@ -24,6 +26,10 @@ public class TestSetup {
         driver.manage().window().maximize();
         driver.get("http://localhost:8080");
         softAssert = new SoftAssert();
+
+        loginPage = new LoginPage(driver);
+        registerPage = new RegisterPage(driver);
+        loggedUserPage = new LoggedUserPage(driver);
     }
 
     @AfterClass
